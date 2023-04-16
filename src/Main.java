@@ -20,27 +20,16 @@ public class Main {
     }
 
     public static boolean palindrome(String str) {
-        if (str.length() % 2 == 0) {
-            for (int i = 0; i < str.length() / 2; i++) {
-                if (!(str.charAt(i) == str.charAt(str.length() - 1 - i))) {
-                    return false;
-                }
-            }
-        } else {
-            for (int i = 0; i < (str.length() - 1) / 2; i++) {
-                if (!(str.charAt(i) == str.charAt(str.length() - 1 - i))) {
-                    return false;
-                }
-            }
-        }
-        return true;
+        return str.equals(new StringBuilder(str).reverse().toString());
     }
 
     public static boolean increase(String str) {
-        char[] arr = str.toCharArray();
-        char[] arrToSort = copyOf(arr, arr.length);
-        sort(arrToSort);
-        return Arrays.equals(arr, arrToSort);
+        for (int i = 0; i < str.length() - 1; i++) {
+            if (str.charAt(i) > str.charAt(i + 1)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static boolean same(String str) {
